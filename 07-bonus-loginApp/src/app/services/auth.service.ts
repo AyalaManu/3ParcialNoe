@@ -60,7 +60,8 @@ export class AuthService {
     return this.http.post(
       `${ this.url }signUp?key=${ this.apikey }`,
       authData
-    ).pipe(
+    )
+    .pipe(
       map( resp => {
         this.guardarToken( resp['idToken'] );
         return resp;
