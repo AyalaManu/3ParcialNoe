@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { UsuarioModel } from 'src/app/models/usuario.modelo';
-import { AuthService } from 'src/app/services/auth.service';
+import { UsuarioModel } from '../../models/usuario.model';
+import { AuthService } from '../../services/auth.service';
 
 import Swal from 'sweetalert2';
-
 
 @Component({
   selector: 'app-registro',
@@ -15,16 +14,16 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent implements OnInit {
 
-  usuario: UsuarioModel;
+  usuario: UsuarioModel = new UsuarioModel;
   recordarme = false;
 
   constructor( private auth: AuthService,
-               private router: Router) { }
+                private router: Router ) { }
 
   ngOnInit() {
     this.usuario = new UsuarioModel();
   }
-    
+
   onSubmit( form: NgForm ) {
 
     if ( form.invalid ) { return; }
@@ -57,4 +56,6 @@ export class RegistroComponent implements OnInit {
         });
       });
   }
+
+
 }
