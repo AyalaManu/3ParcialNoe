@@ -2,8 +2,8 @@
 
 export class UsuarioModel{
 
-    email: string="";
-    password: string="";
-    name: string="";
-
+    email: any;
+    password: string;
+    name: string;
+    
 }

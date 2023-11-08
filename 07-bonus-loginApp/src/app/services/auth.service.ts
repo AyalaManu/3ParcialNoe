@@ -23,15 +23,15 @@ export class AuthService {
   // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
 
-  constructor( private http:HttpClient ) {
+  constructor( private http:HttpClient ) { 
     this.leerToken();
   }
 
-  logout() {
+  logout() { 
 
   }
 
-  login( usuario: UsuarioModel ) {
+  login( usuario: UsuarioModel ) { 
 
     const authData = {
       ...usuario,
@@ -60,8 +60,7 @@ export class AuthService {
     return this.http.post(
       `${ this.url }signUp?key=${ this.apikey }`,
       authData
-    )
-    .pipe(
+    ).pipe(
       map( resp => {
         this.guardarToken( resp['idToken'] );
         return resp;
@@ -85,7 +84,7 @@ export class AuthService {
       this.userToken = '';
     }
 
-    return this.userToken;
+    return this.userToken; 
   }
 
 
