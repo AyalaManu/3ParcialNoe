@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UsuarioModel } from '../models/usuario.model';
+import { UsuarioModel } from '../models/usuario.modelo';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,16 @@ export class AuthService {
   }
 
   nuevoUsuario( usuario: UsuarioModel ) {
+
+    const authData = {
+      ...usuario,
+      returnSecureToken: true
+    };
+
+    return this.http.post(
+      `${ this.url }signUp?key=${ this.apikey }`,
+      authData
+    );
 
   }
 }

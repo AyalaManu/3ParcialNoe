@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import { UsuarioModel } from 'src/app/models/usuario.model';
+import { UsuarioModel } from 'src/app/models/usuario.modelo';
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,20 +9,22 @@ import { UsuarioModel } from 'src/app/models/usuario.model';
 })
 export class LoginComponent implements OnInit {
 
-  usuario: UsuarioModel = new UsuarioModel();
 
+  usuario : UsuarioModel = new UsuarioModel();
   constructor() { }
 
   ngOnInit() {
   }
 
-  login ( form: NgForm){
 
-  if(form.invalid){return}
+  login( form: NgForm ){
 
+
+    if ( form.invalid ) { return; }
 
     console.log(this.usuario)
     console.log(form)
+
   }
 
 }
